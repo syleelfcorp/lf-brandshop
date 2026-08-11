@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+body { margin: 0; background: #fff; min-width: 1400px; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+[data-list-item]:hover [data-arrow] { opacity: 1 !important; }
+</style>
+</helmet>
+
+<div style="min-height: 100vh; font-family: 'Pretendard', sans-serif; color: #111;">
+  <!-- Header -->
+  <div style="position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.85); border-bottom: 1px solid #eee; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+    <div style="max-width: 1920px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 90px">
+      <a href="https://syleelfcorp.github.io/lf-brandshop/index.html" style="text-decoration: none; font-size: 18px; font-weight: 500; letter-spacing: 0px; color: #111">브랜드관 자유형 템플릿</a>
+      <div style="font-size: 13px; color: #666666; font-weight: 400">문의 : e-서비스디자인 이소영 매니저</div>
+    </div>
+  </div>
+
+  <!-- List View -->
+  <sc-if value="{{ !selectedTemplate }}" hint-placeholder-val="{{ true }}">
+    <div style="max-width: 1920px; margin: 0 auto; padding: 48px 20px 80px; padding-top: 60px; padding-bottom: 60px">
+      <sc-for list="{{ allGroups }}" as="group" hint-placeholder-count="3">
+        <div style="margin-bottom: 60px;">
+          <div style="margin-bottom: 20px;">
+            <span style="font-size: 36px; font-weight: 600; letter-spacing: 0px; color: #111; position: relative">{{ group.category }}<span style="font-size: 16px; font-weight: 500; color: #111; position: absolute; top: 2px; margin-left: 3px">{{ group.count }}</span></span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 20px; row-gap: 0;">
+            <sc-for list="{{ group.items }}" as="item" hint-placeholder-count="3">
+          <div data-list-item="" style="display: flex; flex-direction: column; justify-content: space-between; padding: 30px 0 30px 0; border-top: 1px solid #ddd; cursor: pointer; gap: 8px; box-sizing: border-box; position: relative;" onClick="{{ item.onClick }}">
+            <span style="font-size: 20px; font-weight: 500;">{{ item.name }}</span>
+            <div style="display: flex; gap: 6px;">
+              <sc-for list="{{ item.badges }}" as="badge" hint-placeholder-count="0">
+                <span style="font-size: 11px; font-weight: 500; padding: 3px 8px; border: 1px solid #ccc; padding-top: 4px; padding-bottom: 4px; border-width: 0.5px">{{ badge.label }}</span>
+              </sc-for>
+            </div>
+            <svg data-arrow="" width="20" height="20" viewBox="0 0 20 20" fill="none" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); opacity: 0; transition: opacity 0.15s ease;">
+              <path d="M7.5 4l6 6-6 6" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </sc-if>
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { currentCategory: '패션', selectedTemplate: null, imageTab: 'pc' };
+
+  getTemplates() {
+    const fashion = Array.from({ length: 10 }, (_, i) => ({
+      id: `fashion_${String.fromCharCode(65 + i)}`,
+      name: `패션 ${String.fromCharCode(65 + i)}`,
+      category: '패션',
+      badges: this.getBadges(i)
+    }));
+    const imported = Array.from({ length: 4 }, (_, i) => ({
+      id: `global_${String.fromCharCode(65 + i)}`,
+      name: `수입 ${String.fromCharCode(65 + i)}`,
+      category: '수입',
+      badges: this.getBadges(i + 10)
+    }));
+    const beauty = Array.from({ length: 3 }, (_, i) => ({
+      id: `beautyliving_${String.fromCharCode(65 + i)}`,
+      name: `뷰티리빙 ${String.fromCharCode(65 + i)}`,
+      category: '뷰티리빙',
+      badges: this.getBadges(i + 14)
+    }));
+    return [...fashion, ...imported, ...beauty];
+  }
+
+  getBadges(seed) {
+    const badges = [
+      { label: '패밀리' },
+      { label: '컨템포러리' }
+    ];
+    if (seed % 3 === 0) return [badges[0]];
+    if (seed % 3 === 1) return [badges[1]];
+    return [badges[0], badges[1]];
+  }
+
+  renderVals() {
+    const all = this.getTemplates();
+    const categories = ['패션', '수입', '뷰티리빙'];
+    const allGroups = categories.map(cat => {
+      const items = all.filter(t => t.category === cat).map(t => ({
+        ...t,
+        onClick: () => { window.location.href = `detail/${t.id}.html`; }
+      }));
+      return { category: cat, count: items.length, items };
+    });
+
+    return { allGroups };
+  }
+}
+</script>
+</body>
+</html>

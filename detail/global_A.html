@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>body { margin: 0; background: #fff; min-width: 1400px; }</style>
+</helmet>
+<div style="min-height: 100vh; font-family: 'Pretendard', sans-serif; color: #111;">
+  <div style="position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.85); border-bottom: 1px solid #eee; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+    <div style="max-width: 1920px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 90px;">
+      <a href="https://syleelfcorp.github.io/lf-brandshop/index.html" style="text-decoration: none; font-size: 18px; font-weight: 500; color: #111;">브랜드관 자유형 템플릿</a>
+      <div style="font-size: 13px; color: #666; font-weight: 400;">문의 : e-서비스디자인 이소영 매니저</div>
+    </div>
+  </div>
+  <div style="max-width: 1920px; margin: 0 auto; padding: 60px 20px;">
+    <a href="../index.html" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 32px; color: #111; font-size: 16px; font-weight: 400; text-decoration: none;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>목록으로</a>
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="font-size: 48px; font-weight: 600; color: #111; line-height: 1.1;">수입 A</div>
+      <div style="font-size: 16px; color: #666; line-height: 1.5;">수입 A 템플릿입니다. 수입 브랜드 콘텐츠에 최적화되어 있습니다.</div>
+      <div style="width: 100%; max-width: 1920px; margin-top: 8px;">
+        <div style="display: flex; border-bottom: 1px solid #111; padding: 12px 0;">
+          <div style="width: 375px; padding-right: 60px; font-size: 13px; font-weight: 600; color: #111;">영역명</div>
+          <div style="width: 50%; font-size: 13px; font-weight: 600; color: #111;">카드명</div>
+        </div>
+        <div style="display: flex; border-bottom: 1px solid #eee; padding: 12px 0;">
+          <div style="width: 375px; padding-right: 60px; font-size: 14px; font-weight: 500; color: #111;">메인 비주얼</div>
+          <div style="width: 50%; font-size: 14px; color: #111;">풀스크린 이미지</div>
+        </div>
+        <div style="display: flex; border-bottom: 1px solid #eee; padding: 12px 0;">
+          <div style="width: 375px; padding-right: 60px; font-size: 14px; font-weight: 500; color: #111;">브랜드 소개</div>
+          <div style="width: 50%; font-size: 14px; color: #111;">텍스트+이미지</div>
+        </div>
+        <div style="display: flex; border-bottom: 1px solid #eee; padding: 12px 0;">
+          <div style="width: 375px; padding-right: 60px; font-size: 14px; font-weight: 500; color: #111;">상품 리스트</div>
+          <div style="width: 50%; font-size: 14px; color: #111;">3단 그리드</div>
+        </div>
+        <div style="display: flex; border-bottom: 1px solid #eee; padding: 12px 0;">
+          <div style="width: 375px; padding-right: 60px; font-size: 14px; font-weight: 500; color: #111;">푸터</div>
+          <div style="width: 50%; font-size: 14px; color: #111;">기본형</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width: 1920px; margin: 0 auto; padding: 0 20px; margin-bottom: 80px;">
+    <div style="display: flex; gap: 50px; align-items: flex-start">
+      <div style="flex-shrink: 0; width: 375px;">
+        <div style="display: flex; align-items: baseline; gap: 12px; padding-bottom: 16px; margin-bottom: 16px; justify-content: flex-start; border-bottom: 1px solid #000000">
+          <span style="font-size: 20px; font-weight: 600; color: #111; letter-spacing: 1px; text-transform: uppercase">MOBILE</span>
+        </div>
+        <img src="https://syleelfcorp.github.io/lf-brandshop/images/template/global_A_MO.png" style="width: 100%; display: block;" alt="global_A Mobile">
+      </div>
+      <div style="flex: 1; min-width: 0;">
+        <div style="display: flex; align-items: baseline; gap: 12px; padding-bottom: 16px; margin-bottom: 16px; justify-content: flex-start; border-bottom: 1px solid #000000">
+          <span style="font-size: 20px; font-weight: 600; color: #111; letter-spacing: 1px; text-transform: uppercase">PC</span>
+        </div>
+        <img src="https://syleelfcorp.github.io/lf-brandshop/images/template/global_A_PC.png" style="width: 100%; display: block;" alt="global_A PC">
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
