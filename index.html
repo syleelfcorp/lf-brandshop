@@ -97,15 +97,22 @@ class Component extends DCLogic {
 
   getBadges(id) {
     const map = {
-      fashion_F: ['패밀리'],
-      fashion_G: ['패밀리'],
-      fashion_H: ['패밀리'],
-      fashion_I: ['상품집중'],
+      fashion_A: ['인플루언서', '캐주얼', 'ACC'],
+      fashion_B: ['남성', '스포츠', '아웃도어', '캐주얼'],
+      fashion_C: ['브랜드+상품', '포멀', '캐주얼'],
+      fashion_D: ['브랜드+상품', '캐주얼', 'ACC'],
+      fashion_E: ['브랜드+상품', '캐주얼'],
+      fashion_F: ['패밀리', '인플루언서'],
+      fashion_G: ['패밀리', '브랜드+상품'],
+      fashion_H: ['패밀리', '브랜드+상품'],
+      fashion_I: ['상품집중', '캐주얼'],
       fashion_J: ['상품집중'],
-      global_C: ['수입', '패밀리'],
-      beautyliving_A: ['뷰티'],
-      beautyliving_B: ['뷰티', '리빙'],
-      beautyliving_C: ['리빙']
+      global_A: ['브랜드+상품', '컨템포러리'],
+      global_B: ['브랜드 무드 전달', '컨템포러리'],
+      global_C: ['컨템포러리', '니치', '패밀리'],
+      beautyliving_A: ['뷰티', '심플'],
+      beautyliving_B: ['뷰티', '브랜드 무드 전달'],
+      beautyliving_C: ['리빙', '상품집중']
     };
     return (map[id] || []).map(label => ({ label }));
   }
