@@ -99,23 +99,23 @@ class Component extends DCLogic {
 
   getBadges(id) {
     const map = {
-      fashion_A: ['인플루언서', '캐주얼', 'ACC'],
-      fashion_B: ['남성', '스포츠', '아웃도어', '캐주얼'],
-      fashion_C: ['브랜드+상품', '포멀', '캐주얼'],
-      fashion_D: ['브랜드+상품', '캐주얼', 'ACC'],
-      fashion_E: ['브랜드+상품', '캐주얼'],
-      fashion_F: ['패밀리', '인플루언서'],
-      fashion_G: ['패밀리', '브랜드+상품'],
-      fashion_H: ['패밀리', '브랜드+상품'],
-      fashion_I: ['상품집중', '캐주얼'],
-      fashion_J: ['상품집중'],
-      global_A: ['브랜드+상품', '컨템포러리'],
-      global_B: ['브랜드 무드 전달', '컨템포러리'],
-      global_C: ['컨템포러리', '니치', '패밀리'],
-      global_D: ['니치', '브랜드 무드 전달', '패밀리'],
-      beautyliving_A: ['뷰티', '심플'],
-      beautyliving_B: ['뷰티', '브랜드 무드 전달'],
-      beautyliving_C: ['리빙', '상품집중']
+      fashion_A: ['인플루언서', '기획전'],
+      fashion_B: ['룩북', '시즌무드'],
+      fashion_C: ['라인표현', '테마'],
+      fashion_D: ['기획전', '컴팩트'],
+      fashion_E: ['풀카탈로그', '멀티카테고리'],
+      fashion_F: ['패밀리', '컴팩트'],
+      fashion_G: ['패밀리', '라인표현'],
+      fashion_H: ['패밀리', '하이브리드'],
+      fashion_I: ['혜택', '프로모션'],
+      fashion_J: ['기획전', '전체상품'],
+      global_A: ['브랜드무드', '하이브리드'],
+      global_B: ['아이덴티티', '컴팩트'],
+      global_C: ['아이덴티티', '라인구조'],
+      global_D: ['라인별', '니치큐레이션'],
+      beautyliving_A: ['인플루언서', '기획전'],
+      beautyliving_B: ['라인별', '니치큐레이션'],
+      beautyliving_C: ['리빙', '풀카탈로그']
     };
     return (map[id] || []).map(label => ({ label }));
   }
