@@ -31,6 +31,16 @@ body { margin: 0; background: #fff; min-width: 1400px; }
   <!-- List View -->
   <sc-if value="{{ !selectedTemplate }}" hint-placeholder-val="{{ true }}">
     <div style="max-width: 1920px; margin: 0 auto; padding: 48px 20px 80px; padding-top: 60px; padding-bottom: 60px">
+      <div style="background: #eeeeee; padding: 24px; margin-bottom: 40px;">
+        <div style="font-size: 15px; font-weight: 600; color: #111; margin-bottom: 12px;">공지사항</div>
+        <ul style="margin: 0; padding-left: 18px; font-size: 13px; font-weight: 400; color: #111; line-height: 1.6;">
+          <li>9/10 오픈 콘텐츠 대응 시, 이미지·상품카드는 삭제만 가능합니다. 추가는 오픈 후 별도로 작업해 주셔야 합니다.</li>
+          <li>PC GNB는 기본/오버레이 상관없이 공통입니다.</li>
+          <li>모바일에서 카테고리 사용 시, 하단 '베스트셀러' 카드 사용은 지양 바라며, 전체상품 노출 필요한 경우 탭+상품 리스트형 카드 사용 부탁드립니다.</li>
+          <li>상품카드의 로직 관련 문의는 서비스기획 BSU로 부탁드립니다.</li>
+          <li>템플릿에 들어간 이미지는 예시입니다. 참고 바랍니다.</li>
+        </ul>
+      </div>
       <sc-for list="{{ allGroups }}" as="group" hint-placeholder-count="3">
         <div style="margin-bottom: 60px;">
           <div style="margin-bottom: 20px;">
