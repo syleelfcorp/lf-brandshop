@@ -101,7 +101,7 @@ class Component extends DCLogic {
     const allGroups = categories.map(cat => {
       const items = all.filter(t => t.category === cat).map(t => ({
         ...t,
-        thumbnail: `https://syleelfcorp.github.io/lf-brandshop/images/template/${t.id}_PC.png`,
+        thumbnail: `https://syleelfcorp.github.io/lf-brandshop/images/template/${t.id}_thumbnail.png`,
         onClick: () => { window.location.href = `detail/${t.id}.html`; }
       }));
       return { category: cat, count: items.length, items };
