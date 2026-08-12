@@ -68,31 +68,36 @@ class Component extends DCLogic {
       id: `fashion_${String.fromCharCode(65 + i)}`,
       name: `패션 ${String.fromCharCode(65 + i)}`,
       category: '패션',
-      badges: this.getBadges(i)
+      badges: this.getBadges(`fashion_${String.fromCharCode(65 + i)}`)
     }));
     const imported = Array.from({ length: 4 }, (_, i) => ({
       id: `global_${String.fromCharCode(65 + i)}`,
       name: `수입 ${String.fromCharCode(65 + i)}`,
       category: '수입',
-      badges: this.getBadges(i + 10)
+      badges: this.getBadges(`global_${String.fromCharCode(65 + i)}`)
     }));
     const beauty = Array.from({ length: 3 }, (_, i) => ({
       id: `beautyliving_${String.fromCharCode(65 + i)}`,
       name: `뷰티리빙 ${String.fromCharCode(65 + i)}`,
       category: '뷰티리빙',
-      badges: this.getBadges(i + 14)
+      badges: this.getBadges(`beautyliving_${String.fromCharCode(65 + i)}`)
     }));
     return [...fashion, ...imported, ...beauty];
   }
 
-  getBadges(seed) {
-    const badges = [
-      { label: '패밀리' },
-      { label: '컨템포러리' }
-    ];
-    if (seed % 3 === 0) return [badges[0]];
-    if (seed % 3 === 1) return [badges[1]];
-    return [badges[0], badges[1]];
+  getBadges(id) {
+    const map = {
+      fashion_F: ['패밀리'],
+      fashion_G: ['패밀리'],
+      fashion_H: ['패밀리'],
+      fashion_I: ['상품집중'],
+      fashion_J: ['상품집중'],
+      global_C: ['수입', '패밀리'],
+      beautyliving_A: ['뷰티'],
+      beautyliving_B: ['뷰티', '리빙'],
+      beautyliving_C: ['리빙']
+    };
+    return (map[id] || []).map(label => ({ label }));
   }
 
   renderVals() {
