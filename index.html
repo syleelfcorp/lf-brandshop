@@ -111,7 +111,7 @@ class Component extends DCLogic {
   }
 }
 </script>
-<img id="hover-preview" style="position: fixed; left: 0; top: 0; width: 280px; height: 150px; margin-left: -140px; margin-top: -75px; object-fit: cover; background: #eee; box-shadow: 0 4px 20px rgba(0,0,0,0.15); pointer-events: none; opacity: 0; transition: opacity 0.15s ease; z-index: 200;">
+<img id="hover-preview" style="position: fixed; left: 0; top: 0; width: 280px; height: 150px; margin-left: -140px; margin-top: -75px; object-fit: cover; object-position: top; background: #eee; box-shadow: 0 4px 20px rgba(0,0,0,0.15); pointer-events: none; opacity: 0; transition: opacity 0.15s ease; z-index: 200;">
 <script>
 (function () {
   var preview = document.getElementById('hover-preview');
@@ -119,12 +119,10 @@ class Component extends DCLogic {
     var item = e.target.closest('[data-list-item]');
     if (!item) return;
     var src = item.getAttribute('data-thumbnail');
-    var grid = item.closest('[data-grid]');
-    if (!src || !grid) return;
-    var gridRect = grid.getBoundingClientRect();
+    if (!src) return;
     var itemRect = item.getBoundingClientRect();
     preview.src = src;
-    preview.style.left = (gridRect.left + gridRect.width / 2) + 'px';
+    preview.style.left = (itemRect.left + itemRect.width / 2) + 'px';
     preview.style.top = (itemRect.top + itemRect.height / 2) + 'px';
     preview.style.opacity = '1';
   });
